@@ -6,22 +6,22 @@ class Player():
 
     #CONSTRuCTOR
     def __init__(self, name, coins, cards):
-        self.__name = name
-        self.__coins = coins
-        self.__cards = cards
-
+        self.name = name
+        self.coins = coins
+        self.cards = cards
+""""
     @property
     def name(self):
-        return self.__name
+        return self.name
 
     @property
     def coins(self):
-        return self.__coins
+        return self.coins
 
     @property
     def cards(self):
-        return self.__cards
-'''
+        return self.cards
+""""
     #GETTER Y SETTER
     @coins.setter
     def coins_setter(self, value):
@@ -31,6 +31,6 @@ class Player():
             self.__coins  =value
     #MÉTODOS
 
-''' 
+ 
 
     
