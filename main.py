@@ -1,5 +1,9 @@
 import random
 from players import Player
+import os
+from showgame import Show_game
+
+
 
 
 def main():
@@ -8,7 +12,6 @@ def main():
 
     shuffle_deck = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5]
     random.shuffle(shuffle_deck)
-    print(shuffle_deck)
     while True:
         while True:
             number_of_players = input('How many players are going to play?(3 or 4) : ')
@@ -36,18 +39,24 @@ def main():
 
         name = input()
         player_deck = []
+
+
         player_deck.append(shuffle_deck[0])
         player_deck.append(shuffle_deck[1])
-        shuffle_deck.pop(0)
-        shuffle_deck.pop(0)
-        
 
+        shuffle_deck.pop(0)
+        shuffle_deck.pop(0)
+    
         players.append(Player(name, 2, player_deck))
 
-    for i in range(n_players):
-        print(players[i].name)
-        print(players[i].cards)
-        print('-------------------------')
+    #clear Terminal
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    Show_game.show_game(Show_game(players[0], players, n_players))
+    
+ 
+
+
 
         
         
