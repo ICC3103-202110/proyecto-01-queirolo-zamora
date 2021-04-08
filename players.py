@@ -9,7 +9,7 @@ class Player():
         self.name = name
         self.coins = coins
         self.cards = cards
-""""
+'''
     @property
     def name(self):
         return self.name
@@ -21,7 +21,7 @@ class Player():
     @property
     def cards(self):
         return self.cards
-""""
+
     #GETTER Y SETTER
     @coins.setter
     def coins_setter(self, value):
@@ -30,7 +30,7 @@ class Player():
         else:
             self.__coins  =value
     #MÉTODOS
-
+'''
  
 
     

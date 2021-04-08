@@ -4,6 +4,8 @@ from players import Player
 
 def main():
 
+    players = []
+
     shuffle_deck = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5]
     random.shuffle(shuffle_deck)
     print(shuffle_deck)
@@ -37,15 +39,16 @@ def main():
         player_deck.append(shuffle_deck[0])
         player_deck.append(shuffle_deck[1])
         shuffle_deck.pop(0)
-        print(shuffle_deck)
         shuffle_deck.pop(0)
-        print(shuffle_deck)
+        
 
-        Player(name, 2, player_deck)
-
+        players.append(Player(name, 2, player_deck))
 
     for i in range(n_players):
-        print("Nombre: ", Player[i].name)
+        print(players[i].name)
+        print(players[i].cards)
+        print('-------------------------')
+
         
         
 
