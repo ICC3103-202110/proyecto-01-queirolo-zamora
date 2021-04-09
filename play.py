@@ -4,7 +4,7 @@ import time
 from showgame import Show_game
 from players import Player
 from deck import Deck
-from counterattack import Counterattack
+#from counterattack import Counterattack
 from challenge import Challenge
 
 class Play (ABC):
@@ -23,7 +23,7 @@ class Play (ABC):
 
                 time.sleep(3)
 
-                Show_game.show_game(Show_game(players[i], players, n_players))
+                Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
 
                 print('action you want to perform!')
                 print('1. income ')
@@ -36,29 +36,37 @@ class Play (ABC):
                 action = int(input())
                 
                 if action == 1:
-                    self.player[i].change_amount_coins(1)
+                    self.players[i].change_amount_coins(1)
 
 
                 elif action == 2:
-                    if (input('Someone whats to counterattack this action? (yes/no)') == yes):
-                        blocked = Counterattack.counterattack(Player[i], 1)
+                    if (input('Someone whats to counterattack this action? (yes/no)') == "yes"):
+                        pass
+                        #blocked = Counterattack.counterattack(Player[i], 1)
                     else:
-                        blocked = False
+                        pass
+                        #blocked = False
 
-                    if bloked == False:
-                        self.player[i].change_amount_coins(2)
-                    if bloked ==
+                    #if bloked == False:
+                        #self.players[i].change_amount_coins(2)
+                   
 
 
 
                 elif action == 3:
+                    self.players[i].coins-=7
+                    COUPED=input("Choose a player: ")
+                    if COUPED == self.players[0].name:
+                        pass
 
                 elif action == 4:
+                    pass
 
                 elif action == 5:
+                    pass
 
                 elif action == 6:
+                    pass
 
                 elif action == 7:
-
-                
+                    pass
