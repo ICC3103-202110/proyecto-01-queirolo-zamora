@@ -12,3 +12,7 @@ class Deck(ABC):
         self.deck.remove[rcard]
         return rcard
 
+    def return_card(self,card):
+        pass
+
+
