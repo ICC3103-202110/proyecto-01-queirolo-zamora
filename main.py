@@ -52,7 +52,7 @@ def main():
     #clear Terminal
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    Show_game.show_game(Show_game(players[0], players, n_players))
+    
     
  
 

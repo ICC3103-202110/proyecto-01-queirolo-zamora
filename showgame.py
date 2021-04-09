@@ -1,6 +1,7 @@
 from abc import ABC
 from abc import abstractmethod
 
+
 class Show_game(ABC):
 
     def __init__(self, player, players, n_players):

@@ -4,6 +4,8 @@ import time
 from showgame import Show_game
 from players import Player
 from deck import Deck
+from counterattack import Counterattack
+from challenge import Challenge
 
 class Play (ABC):
 
@@ -34,9 +36,20 @@ class Play (ABC):
                 action = int(input())
                 
                 if action == 1:
-                    Player[i].change_amount_coins(1)
+                    self.player[i].change_amount_coins(1)
+
 
                 elif action == 2:
+                    if (input('Someone whats to counterattack this action? (yes/no)') == yes):
+                        blocked = Counterattack.counterattack(Player[i], 1)
+                    else:
+                        blocked = False
+
+                    if bloked == False:
+                        self.player[i].change_amount_coins(2)
+                    if bloked ==
+
+
 
                 elif action == 3:
 
