@@ -55,6 +55,8 @@ class Play (ABC):
 
                 elif action == 3:
                     self.players[i].coins-=7
+                    print()
+                    print('-7 coins. ')
                     COUPED=input("Choose a player: ")
                     if COUPED == self.players[0].name:
                         pass
