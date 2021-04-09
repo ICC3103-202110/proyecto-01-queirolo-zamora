@@ -58,6 +58,12 @@ class Play (ABC):
                     print()
                     COUPED=input("Choose a player: ")
 
+                    if self.n_players == 2:
+                        if COUPED == self.players[0].name:
+                            pass
+                        elif COUPED == self.players[1].name:
+                            pass
+
                     if self.n_players == 3:
                         if COUPED == self.players[0].name:
                             pass
@@ -90,6 +96,12 @@ class Play (ABC):
                     if bloked == False:
                         self.players[i].coins-=3
                         MUERDERED=input("Choose a player: ")
+                        
+                        if self.n_players == 2:
+                            if COUPED == self.players[0].name:
+                                pass
+                            elif COUPED == self.players[1].name:
+                                pass
 
                         if self.n_players == 3:
                             if MUERDERED == self.players[0].name:
@@ -98,6 +110,7 @@ class Play (ABC):
                                 pass
                             elif MUERDERED == self.players[2].name:
                                 pass
+                            
                         if self.n_players == 4:
                             if MUERDERED == self.players[0].name:
                                 pass
@@ -117,6 +130,12 @@ class Play (ABC):
                     if bloked == False:
                         EXTORTED=input("Choose a player: ")
 
+                        if self.n_players == 2:
+                            if COUPED == self.players[0].name:
+                                pass
+                            elif COUPED == self.players[1].name:
+                                pass
+
                         if self.n_players == 3:
                             if EXTORTED == self.players[0].name:
                                 if self.players[0].coins>=2:
@@ -133,6 +152,7 @@ class Play (ABC):
                                     self.players[2].coins-=2
                                 else:
                                     self.players[2].coins-=1
+
                         if self.n_players == 4:
                             if EXTORTED == self.players[0].name:
                                 if self.players[0].coins>=2:
