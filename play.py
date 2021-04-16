@@ -89,7 +89,7 @@ class Play (ABC):
 
                 elif action == 5:
                     if (input('Someone whats to counterattack this action? (yes/no)') == "yes"):
-                        blocked = Counterattack.counterattack(Player[i], 5)    #ver si 5 es condesa
+                        blocked = Counterattack.counterattack(Player[i], 5)    #ver si 5 es condesa ### poner challenge
                     else:
                         blocked = False
 
