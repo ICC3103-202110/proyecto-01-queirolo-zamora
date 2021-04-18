@@ -7,6 +7,7 @@ from deck import Deck
 from counterattack import Counterattack
 from challenge import Challenge
 from coup import Coup
+from steal import Steal
 
 
 class Play (ABC):
@@ -36,10 +37,10 @@ class Play (ABC):
                     print('1. income ')
                     print('2. Foreign aid')
                     print('3. Coup')
-                    print('4. Duke-Tax')
-                    print('5. Murderer-Murder')
-                    print('6. Captain-Extortion')
-                    print('7. Ambassador-Change')
+                    print('4. Tax')
+                    print('5. Assassinate')
+                    print('6. Steal')
+                    print('7. Exchange')
                     print('8. Force STOP')
                     action = int(input())
                 
@@ -74,7 +75,10 @@ class Play (ABC):
                         Challenge(self.players[i], 4, self.n_players ,self.players))
                     if challenged == False:
                         self.players[i].coins += 3
-                    
+                
+                elif action == 6:
+                    Steal.steal(Steal(self.players[i], self.players, self.n_players))
+
                 
                 
                 

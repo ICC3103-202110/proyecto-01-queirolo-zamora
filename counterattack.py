@@ -14,7 +14,7 @@ class Counterattack(ABC):
     def counterattack(self):
         y_n = input('someone whats to challenge this counterattack?(yes/no)')
         if  y_n == 'yes':
-            for i in self.n_players:
+            for i in range(self.n_players):
                 if self.players[i] != self.victim:
                     print(i+1, '.-', self.players[i])
             attacker = input()

@@ -17,10 +17,10 @@ class Coup (ABC):
             print()
             print('-7 coins.')
             print()
-            for i in self.n_players:
+            for i in range(self.n_players):
                 if self.players[i] != self.attacker:
                     print(i+1, '.-', self.players[i])
-            COUPED = input("Choose a player to Coup: ") - 1
+            COUPED = int(input("Choose a player to Coup: ")) - 1
             print(self.players[COUPED].name, 'Choose a card to reveal!')
             for i in len(self.players[COUPED].cards):
                 print(i, '.-', self.players[COUPED].cards[0])
