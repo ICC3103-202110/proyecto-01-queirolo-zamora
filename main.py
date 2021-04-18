@@ -1,7 +1,7 @@
 import random
 from players import Player
-import os
 from showgame import Show_game
+from play import Play
 
 
 
@@ -48,9 +48,9 @@ def main():
         shuffle_deck.pop(0)
     
         players.append(Player(name, 2, player_deck))
+    
+    Play.play(Play(players, n_players))
 
-    #clear Terminal
-    os.system('cls' if os.name == 'nt' else 'clear')
 
     
     

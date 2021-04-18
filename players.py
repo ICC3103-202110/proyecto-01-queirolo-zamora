@@ -15,7 +15,6 @@ class Player():
     def remove_card (self, card):
         self.cards.remove(card)
 
-    @coins.setter
     def coins_setter(self, value):
         if value < 0:
             self.coins = 0
