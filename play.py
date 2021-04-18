@@ -8,6 +8,7 @@ from counterattack import Counterattack
 from challenge import Challenge
 from coup import Coup
 from steal import Steal
+from assassinate import Assassinate
 
 
 class Play (ABC):
@@ -27,7 +28,8 @@ class Play (ABC):
                 print("it's", self.players[i].name,"'s Turn!")
 
 
-                Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
+                Show_game.show_game(Show_game(
+                    self.players[i], self.players, self.n_players))
 
                 if self.players[i].coins >= 10:
                     action = 3
@@ -55,9 +57,11 @@ class Play (ABC):
 
 
                 elif action == 2:
-                    if (input('Someone whats to counterattack this action? (yes/no)')) == "yes":
+                    if (input(
+                        'Someone whats to counterattack this action? (yes/no)')) == "yes":
                         blocked = Counterattack.counterattack(
-                            Counterattack(self.players[i], 1, self.n_players, self.players))
+                            Counterattack(
+                                self.players[i], 1, self.n_players, self.players))
                     else:
                         blocked = False
 
@@ -76,6 +80,13 @@ class Play (ABC):
                     if challenged == False:
                         self.players[i].coins += 3
                 
+
+                elif action == 5:
+                    Assassinate.assassinate(
+                        Assassinate(self.players[i], self.players, self.n_players))
+
+
+
                 elif action == 6:
                     Steal.steal(Steal(self.players[i], self.players, self.n_players))
 
@@ -119,6 +130,6 @@ class Play (ABC):
                 
                 
                 Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
-                time.sleep(5)
+                time.sleep(3)
 
             

@@ -16,7 +16,7 @@ class Counterattack(ABC):
         if  y_n == 'yes':
             for i in range(self.n_players):
                 if self.players[i] != self.victim:
-                    print(i+1, '.-', self.players[i])
+                    print(i+1, '.-', self.players[i].name)
             attacker = input()
             winner = Challenge.challenge(Challenge(attacker, self.counterattack_card, self.n_players ,self.players))
 

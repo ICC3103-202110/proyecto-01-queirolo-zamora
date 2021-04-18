@@ -19,13 +19,13 @@ class Coup (ABC):
             print()
             for i in range(self.n_players):
                 if self.players[i] != self.attacker:
-                    print(i+1, '.-', self.players[i])
+                    print(i+1, '.-', self.players[i].name)
             COUPED = int(input("Choose a player to Coup: ")) - 1
             print(self.players[COUPED].name, 'Choose a card to reveal!')
-            for i in len(self.players[COUPED].cards):
-                print(i, '.-', self.players[COUPED].cards[0])
-            choosen_card = input()
-
+            for i in range(len(self.players[COUPED].cards)):
+                print(i, '.-', self.players[COUPED].cards[i])
+            choosen_card = int(input())-1
+            
             
 
 

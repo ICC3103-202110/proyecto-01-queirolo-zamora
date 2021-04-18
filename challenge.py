@@ -14,7 +14,7 @@ class Challenge (ABC):
         if  y_n == 'yes':
             for i in range(self.n_players):
                 if self.players[i] != self.victim:
-                    print(i+1, '.-', self.players[i])
+                    print(i+1, '.-', self.players[i].name)
                 
             attacker = (int(input()))-1
 
@@ -23,7 +23,8 @@ class Challenge (ABC):
                 print(self.players[attacker], 'chose a card to reval!')
                 print('1.-', self.players[attacker].cards[0])
                 print('2.-', self.players[attacker].cards[1])
-                chosen_card = input()
+                choosen_card = int(input())-1
+                
                 
                 return 'victim'
 
@@ -32,7 +33,8 @@ class Challenge (ABC):
                 print(self.victim, 'chose a card to reval!')
                 print('1.-', self.victim.cards[0])
                 print('2.-', self.victim.cards[1])
-                chosen_card = input()
+                choosen_card = int(input())-1
+                
 
                 return 'attacker'
 
