@@ -91,7 +91,21 @@ class Play (ABC):
                     Steal.steal(Steal(self.players[i], self.players, self.n_players))
 
                 
-                
+                elif action == 7:
+                    NEW_CARDS= []
+                    #for i in range(2): 
+                        #NEW_CARDS.append(Deck.draw_card_from_deck())
+
+                    self.players[i].cards.append(NEW_CARDS)
+
+                    CARD1= input("Choose a card to return it to the deck: ")
+                    CARD2= input("Choose another card to return it to the deck: ")
+
+                    self.players[i].cards.remove(CARD1)
+                    self.players[i].cards.remove(CARD2)
+
+                    shuffle_deck.append(CARD1,CARD2)
+                    
                 
                 
                 
