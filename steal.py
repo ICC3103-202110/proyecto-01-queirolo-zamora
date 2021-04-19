@@ -26,7 +26,7 @@ class Steal (ABC):
                 for i in range(self.n_players):
                     if self.players[i] != self.attacker:
                         print(i+1, '.-', self.players[i].name)
-            stoled = int(input("Choose a player to Coup: ")) - 1
+            stoled = int(input("Choose a player to steal: ")) - 1
             if self.players[stoled].coins == 1:
                 self.players[stoled].coins -= 1
                 self.attacker.coins += 1

@@ -30,7 +30,7 @@ class Assassinate (ABC):
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
-                    assassinated = int(input("Choose a player to Coup: ")) - 1
+                    assassinated = int(input("Choose a player to Assassinate: ")) - 1
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
                     for i in range(len(self.players[assassinated].cards)):
                         print(i, '.-', self.players[assassinated].cards[i])
