@@ -18,4 +18,8 @@ class Deck(ABC):
         self.deck.append(self.card)
         return self.hand_deck, self.deck
 
-
+    def see_hand_cards(self,player):
+        pass
+       
+    def reveal_card(self,card,player_deck):
+        pass
