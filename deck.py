@@ -1,5 +1,6 @@
 from abc import ABC
 from abc import abstractmethod
+from players import Player
 
 class Deck(ABC):
 
@@ -19,7 +20,7 @@ class Deck(ABC):
         return self.hand_deck, self.deck
 
     def see_hand_cards(self,player):
-        pass
+        print(self.player.cards)
        
     def reveal_card(self,card,player_deck):
         pass
