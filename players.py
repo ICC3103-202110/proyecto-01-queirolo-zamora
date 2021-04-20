@@ -1,10 +1,13 @@
 
 class Player():
 
-    def __init__(self, name, coins, cards):
+    def __init__(self, name, coins, cards, playing_cards):
         self.name = name
         self.coins = coins
         self.cards = cards
+        self.playing_cards = playing_cards
+
+        
 
     def change_amount_coins(self, value):
         self.coins = self.coins + value

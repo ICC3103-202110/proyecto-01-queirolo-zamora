@@ -9,6 +9,7 @@ from play import Play
 def main():
 
     players = []
+    
 
     shuffle_deck = [1,1,1,2,2,2,3,3,3,4,4,4,5,5,5]
     random.shuffle(shuffle_deck)
@@ -39,15 +40,36 @@ def main():
 
         name = input()
         player_deck = []
+        playing_cards = []
 
 
         player_deck.append(shuffle_deck[0])
+        if shuffle_deck[0] == 1:
+            playing_cards.append('Duke')
+        elif shuffle_deck[0] == 2:
+            playing_cards.append('Assassin')
+        elif shuffle_deck[0] == 3:
+            playing_cards.append('Capitan')
+        elif shuffle_deck[0] == 4:
+            playing_cards.append('Ambassador')
+        elif shuffle_deck[0] == 5:
+            playing_cards.append('Contessa')
         player_deck.append(shuffle_deck[1])
+        if shuffle_deck[1] == 1:
+            playing_cards.append('Duke')
+        elif shuffle_deck[1] == 2:
+            playing_cards.append('Assassin')
+        elif shuffle_deck[1] == 3:
+            playing_cards.append('Capitan')
+        elif shuffle_deck[1] == 4:
+            playing_cards.append('Ambassador')
+        elif shuffle_deck[1] == 5:
+            playing_cards.append('Contessa')
 
         shuffle_deck.pop(0)
         shuffle_deck.pop(0)
     
-        players.append(Player(name, 2, player_deck))
+        players.append(Player(name, 2, player_deck, playing_cards))
     
     Play.play(Play(players, n_players))
 
