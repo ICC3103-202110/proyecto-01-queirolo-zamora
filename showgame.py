@@ -11,21 +11,32 @@ class Show_game(ABC):
 
 
     def show_game(self):
-        #player 1
+        a = [[],[]]
+        hide_deck1 = a
+        hide_deck2 = a
+        hide_deck3 = a
+        hide_deck4 = a
+    
+
+
+
+
+
+
         if self.players[0] == self.player:
             print('-------------------------------------------------GAME-----------------------------------------------------------------')
             print()
             print('                                             Player:')
             print('                                                    ',self.players[1].name)
             print('                                             CARDS:')
-            print('                                                    ','[][]')
+            print('                                                    ',hide_deck2)
             print('                                             COINS:')
             print('                                                    ',self.players[1].coins)
             print()
             print('Player:                                                                                      Player:')
             print('       ',self.players[0].name,'                                                                                          ',self.players[2].name)
             print('CARDS:                                                                                       CARDS:')
-            print('       ',self.players[0].playing_cards,'                                                                                     ','[][]')
+            print('       ',self.players[0].playing_cards,'                                                                                     ',hide_deck3)
             print('COINS:                                                                                       COINS:')
             print('       ',self.players[0].coins,'                                                                                          ',self.players[2].coins)
             if self.n_players == 4:
@@ -33,7 +44,7 @@ class Show_game(ABC):
                 print('                                             Player:')
                 print('                                                    ',self.players[3].name)
                 print('                                             CARDS:')
-                print('                                                    ','[][]')
+                print('                                                    ',hide_deck4)
                 print('                                             COINS:')
                 print('                                                    ',self.players[3].coins)
                 print()
@@ -51,7 +62,7 @@ class Show_game(ABC):
             print('Player:                                                                                      Player:')
             print('       ',self.players[0].name,'                                                                                          ',self.players[2].name)
             print('CARDS:                                                                                       CARDS:')
-            print('       ','[][]','                                                                                     ','[][]')
+            print('       ',hide_deck1,'                                                                                     ',hide_deck3)
             print('COINS:                                                                                       COINS:')
             print('       ',self.players[0].coins,'                                                                                          ',self.players[2].coins)
             if self.n_players == 4:
@@ -59,7 +70,7 @@ class Show_game(ABC):
                 print('                                             Player:')
                 print('                                                    ',self.players[3].name)
                 print('                                             CARDS:')
-                print('                                                    ','[][]')
+                print('                                                    ',hide_deck4)
                 print('                                             COINS:')
                 print('                                                    ',self.players[3].coins)
                 print()
@@ -70,14 +81,14 @@ class Show_game(ABC):
             print('                                             Player:')
             print('                                                    ',self.players[1].name)
             print('                                             CARDS:')
-            print('                                                    ','[][]')
+            print('                                                    ',hide_deck2)
             print('                                             COINS:')
             print('                                                    ',self.players[1].coins)
             print()
             print('Player:                                                                                      Player:')
             print('       ',self.players[0].name,'                                                                                          ',self.players[2].name)
             print('CARDS:                                                                                       CARDS:')
-            print('       ','[][]','                                                                                     ',self.players[2].playing_cards)
+            print('       ',hide_deck1,'                                                                                     ',self.players[2].playing_cards)
             print('COINS:                                                                                       COINS:')
             print('       ',self.players[0].coins,'                                                                                          ',self.players[2].coins)
             if self.n_players == 4:
@@ -85,7 +96,7 @@ class Show_game(ABC):
                 print('                                             Player:')
                 print('                                                    ',self.players[3].name)
                 print('                                             CARDS:')
-                print('                                                    ','[][]')
+                print('                                                    ',hide_deck4)
                 print('                                             COINS:')
                 print('                                                    ',self.players[3].coins)
                 print()
@@ -97,14 +108,14 @@ class Show_game(ABC):
             print('                                             Player:')
             print('                                                    ',self.players[1].name)
             print('                                             CARDS:')
-            print('                                                    ','[][]')
+            print('                                                    ',hide_deck2)
             print('                                             COINS:')
             print('                                                    ',self.players[1].coins)
             print()
             print('Player:                                                                                      Player:')
             print('       ',self.players[0].name,'                                                                                          ',self.players[2].name)
             print('CARDS:                                                                                       CARDS:')
-            print('       ','[][]','                                                                                     ','[][]')
+            print('       ',hide_deck1,'                                                                                     ',hide_deck3)
             print('COINS:                                                                                       COINS:')
             print('       ',self.players[0].coins,'                                                                                          ',self.players[2].coins)
             if self.n_players == 4:
