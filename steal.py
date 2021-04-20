@@ -17,7 +17,7 @@ class Steal (ABC):
         print(100 * '\n')
         
         challenged = Challenge.challenge(
-                        Challenge(self.attacker, 4, self.n_players ,self.players))
+                        Challenge(self.attacker, 3, self.n_players ,self.players))
         if challenged == False:
             if (input('Someone whats to counterattack this action? (yes/no)')) == "yes":
                 blocked = Counterattack.counterattack(
