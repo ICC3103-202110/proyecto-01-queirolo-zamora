@@ -122,6 +122,7 @@ class Show_game(ABC):
                 print('                                                    ',self.players[3].coins)
                 print()
 
+        
 
 
 

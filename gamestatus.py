@@ -39,5 +39,5 @@ class Gamestatus(ABC):
             self.players[3].cards.remove[value]
             self.players[3].cards.append(0)
         
-    def Show_gamestatus(self):
+    def Show_gamestatus(self,player):
         Show_game.show_game

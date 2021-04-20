@@ -33,7 +33,7 @@ class Play (ABC):
                 
 
 
-                Gamestatus.Show_gamestatus
+                Gamestatus(self.players[i], self.players, self.n_players).Show_gamestatus
                 #Show_game.show_game
 
                 if self.players[i].coins >= 10:
