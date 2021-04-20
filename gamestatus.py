@@ -1,6 +1,6 @@
 from abc import ABC
 from abc import abstractmethod
-
+from showgame import Show_game
 
 
 class Gamestatus(ABC):
@@ -40,5 +40,4 @@ class Gamestatus(ABC):
             self.players[3].cards.append(0)
         
     def Show_gamestatus(self):
-        Show_game.show_game(Show_game(self.player, self.players, self.n_players,
-         self.hide_deck1, self.hide_deck2, self.hide_deck3, self.hide_deck4))
+        Show_game.show_game

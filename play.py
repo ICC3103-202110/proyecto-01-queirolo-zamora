@@ -34,7 +34,8 @@ class Play (ABC):
 
 
                 Gamestatus.Show_gamestatus
-                Show_game.show_game
+                #Show_game.show_game
+
                 if self.players[i].coins >= 10:
                     action = 3
 
@@ -151,7 +152,7 @@ class Play (ABC):
                 
                 
                 Gamestatus.Show_gamestatus
-                Show_game.show_game
+                #Show_game.show_game
 
                 time.sleep(3)
 
