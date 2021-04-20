@@ -4,6 +4,7 @@ from challenge import Challenge
 from counterattack import Counterattack
 
 
+
 class Steal (ABC):
 
     def __init__ (self, attacker, players, n_players):
@@ -24,7 +25,8 @@ class Steal (ABC):
                 blocked = False
 
             if blocked == False:
-                Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
+                Show_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players))
                 print('Who do you want to steal from?')
                 for i in range(self.n_players):
                     if self.players[i] != self.attacker:

@@ -2,6 +2,7 @@ from abc import ABC
 from abc import abstractmethod
 from challenge import Challenge
 from counterattack import Counterattack
+from gamestatus import Gamestatus
 
 
 class Assassinate (ABC):
@@ -28,7 +29,8 @@ class Assassinate (ABC):
                     blocked = False
 
                 if blocked == False:
-                    Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
+                    Show_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players))
                     self.attacker.coins -= 3
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
@@ -38,5 +40,8 @@ class Assassinate (ABC):
                     for i in range(len(self.players[assassinated].cards)):
                         print(i, '.-', self.players[assassinated].cards[i])
                     choosen_card = int(input())-1
+                    Change_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players),self.players[assassinated], choosen_card)
+
                     
                     

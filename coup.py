@@ -1,5 +1,6 @@
 from abc import ABC
 from abc import abstractmethod
+from gamestatus import Gamestatus
 
 class Coup (ABC):
 
@@ -25,6 +26,8 @@ class Coup (ABC):
             for i in range(len(self.players[COUPED].cards)):
                 print(i, '.-', self.players[COUPED].cards[i])
             choosen_card = int(input())-1
+            Change_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players),self.players[COUPED], choosen_card)
             
             
 

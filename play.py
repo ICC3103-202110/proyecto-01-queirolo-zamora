@@ -2,6 +2,8 @@ from abc import ABC
 from abc import abstractmethod
 import time
 from showgame import Show_game
+from gamestatus import Gamestatus
+
 from players import Player
 from deck import Deck
 from counterattack import Counterattack
@@ -31,7 +33,7 @@ class Play (ABC):
                 
 
 
-                Show_game.show_game(Show_game(
+                Show_gamestatus.gamestatus(Gamestatus(
                     self.players[i], self.players, self.n_players))
 
                 if self.players[i].coins >= 10:
@@ -149,7 +151,8 @@ class Play (ABC):
                 
                 
                 
-                Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
+                Show_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players))
                 time.sleep(3)
 
             

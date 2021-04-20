@@ -1,5 +1,6 @@
 from abc import ABC
 from abc import abstractmethod
+from gamestatus import Gamestatus
 
 class Challenge (ABC):
 
@@ -24,6 +25,8 @@ class Challenge (ABC):
                 print('1.-', self.players[attacker].cards[0])
                 print('2.-', self.players[attacker].cards[1])
                 choosen_card = int(input())-1
+                Change_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players),self.players[attacker], choosen_card)
                 
                 
                 return 'victim'
@@ -34,6 +37,8 @@ class Challenge (ABC):
                 print('1.-', self.victim.cards[0])
                 print('2.-', self.victim.cards[1])
                 choosen_card = int(input())-1
+                Change_gamestatus.gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players),self.victim, choosen_card)
                 
 
                 return 'attacker'
