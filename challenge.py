@@ -20,25 +20,23 @@ class Challenge (ABC):
             attacker = (int(input()))-1
 
             if self.challenged_card == self.victim.cards[0] or self.challenged_card == self.victim.cards[1]:
-                print(self.players[attacker], 'lose the challenge')
-                print(self.players[attacker], 'chose a card to reval!')
-                print('1.-', self.players[attacker].cards[0])
-                print('2.-', self.players[attacker].cards[1])
+                print(self.players[attacker].name, 'lose the challenge')
+                print(self.players[attacker].name, 'chose a card to reval!')
+                print('1.-', self.players[attacker].playing_cards[0])
+                print('2.-', self.players[attacker].playing_cards[1])
                 choosen_card = int(input())-1
-                Change_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players),self.players[attacker], choosen_card)
+                Gamestatus.Change_gamestatus(Gamestatus(self.players[attacker], self.players, self.n_players), self.players[attacker], choosen_card)
                 
                 
                 return 'victim'
 
             else:
-                print(self.victim, 'lose the challenge')
-                print(self.victim, 'chose a card to reval!')
-                print('1.-', self.victim.cards[0])
-                print('2.-', self.victim.cards[1])
+                print(self.victim.name, 'lose the challenge')
+                print(self.victim.name, 'chose a card to reval!')
+                print('1.-', self.victim.playing_cards[0])
+                print('2.-', self.victim.playing_cards[1])
                 choosen_card = int(input())-1
-                Change_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players),self.victim, choosen_card)
+                Gamestatus.Change_gamestatus(Gamestatus(self.players[attacker], self.players, self.n_players), self.victim, choosen_card)
                 
 
                 return 'attacker'

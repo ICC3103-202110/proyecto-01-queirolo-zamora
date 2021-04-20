@@ -10,6 +10,7 @@ class Coup (ABC):
         self.n_players = n_players
     
     def coup (self):
+
         if self.attacker.coins <= 6:
             print("You don't have enough money, you lose your turn!")
         
@@ -23,11 +24,10 @@ class Coup (ABC):
                     print(i+1, '.-', self.players[i].name)
             COUPED = int(input("Choose a player to Coup: ")) - 1
             print(self.players[COUPED].name, 'Choose a card to reveal!')
-            for i in range(len(self.players[COUPED].cards)):
-                print(i, '.-', self.players[COUPED].cards[i])
+            for i in range(len(self.players[COUPED].playing_cards)):
+                print(i, '.-', self.players[COUPED].playing_cards[i])
             choosen_card = int(input())-1
-            Change_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players),self.players[COUPED], choosen_card)
+            Gamestatus.Change_gamestatus(Gamestatus(self.attacker, self.players, self.n_players), self.players[COUPED], choosen_card)
             
             
 

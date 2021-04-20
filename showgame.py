@@ -4,14 +4,15 @@ from abc import abstractmethod
 
 class Show_game(ABC):
 
-    def __init__(self, player, players, n_players,hide_deck1,hide_deck2,hide_deck3,hide_deck4):
+    def __init__(self, player, players, n_players):
         self.player = player
         self.players = players
         self.n_players = n_players
-        self.hide_deck1 = hide_deck1
-        self.hide_deck2 = hide_deck2
-        self.hide_deck3 = hide_deck3
-        self.hide_deck4 = hide_deck4
+        self.hide_deck1 = self.players[0].hiden_deck
+        self.hide_deck2 = self.players[1].hiden_deck
+        self.hide_deck3 = self.players[2].hiden_deck
+        if n_players == 4 :
+            self.hide_deck4 = self.players[3].hiden_deck
 
 
 

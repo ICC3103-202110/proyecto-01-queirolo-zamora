@@ -15,12 +15,12 @@ class Deck(ABC):
         return rcard
 
     def return_card(self,card,hand_deck):
-        self.hand_deck.remove(self.card)
-        self.deck.append(self.card)
+        self.hand_deck.remove(card)
+        self.deck.append(card)
         return self.hand_deck, self.deck
 
     def see_hand_cards(self,player):
-        print(self.player.cards)
+        print(player.cards)
        
     def reveal_card(self,card,player_deck):
         pass

@@ -2,6 +2,7 @@ from abc import ABC
 from abc import abstractmethod
 from challenge import Challenge
 from counterattack import Counterattack
+from gamestatus import Gamestatus
 
 
 
@@ -25,8 +26,8 @@ class Steal (ABC):
                 blocked = False
 
             if blocked == False:
-                Show_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players))
+                Gamestatus.Show_gamestatus(Gamestatus(
+                        self.attacker, self.players, self.n_players))
                 print('Who do you want to steal from?')
                 for i in range(self.n_players):
                     if self.players[i] != self.attacker:

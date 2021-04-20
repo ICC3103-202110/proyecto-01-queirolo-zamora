@@ -21,6 +21,7 @@ class Play (ABC):
 
     def play (self):
         vbreak = False
+
         while True:
             if vbreak == True:
                 break
@@ -33,13 +34,15 @@ class Play (ABC):
                 
 
 
-                Gamestatus(self.players[i], self.players, self.n_players).Show_gamestatus
+                Gamestatus.Show_gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players))
                 #Show_game.show_game
 
                 if self.players[i].coins >= 10:
                     action = 3
 
                 else:
+                    print(2*'\n')
                     print('Action you want to perform?')
                     print('1. income ')
                     print('2. Foreign aid')
@@ -108,10 +111,11 @@ class Play (ABC):
                     CARD1= input("Choose a card to return it to the deck: ")
                     CARD2= input("Choose another card to return it to the deck: ")
 
-                    self.players[i].cards.remove(CARD1)
-                    self.players[i].cards.remove(CARD2)
+                    '''
 
-                    shuffle_deck.append(CARD1,CARD2)
+                    Deck.return_card(CARD1, self.players[i].cards)
+                    Deck.return_card(CARD2, self.players[i].cards)
+                    '''
                 
                 
                 
@@ -150,8 +154,8 @@ class Play (ABC):
                 
                 
                 
-                
-                Gamestatus.Show_gamestatus
+                Gamestatus.Show_gamestatus(Gamestatus(
+                    self.players[i], self.players, self.n_players))
                 #Show_game.show_game
 
                 time.sleep(3)

@@ -41,6 +41,7 @@ def main():
         name = input()
         player_deck = []
         playing_cards = []
+        hiden_deck = [[], []]
 
 
         player_deck.append(shuffle_deck[0])
@@ -69,7 +70,7 @@ def main():
         shuffle_deck.pop(0)
         shuffle_deck.pop(0)
     
-        players.append(Player(name, 2, player_deck, playing_cards))
+        players.append(Player(name, 2, player_deck, playing_cards, hiden_deck))
     
     Play.play(Play(players, n_players))
 

@@ -29,19 +29,18 @@ class Assassinate (ABC):
                     blocked = False
 
                 if blocked == False:
-                    Show_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players))
+                    Gamestatus.Show_gamestatus(Gamestatus(
+                        self.attacker, self.players, self.n_players))
                     self.attacker.coins -= 3
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
                     assassinated = int(input("Choose a player to Assassinate: ")) - 1
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
-                    for i in range(len(self.players[assassinated].cards)):
-                        print(i, '.-', self.players[assassinated].cards[i])
-                    choosen_card = int(input())-1
-                    Change_gamestatus.gamestatus(Gamestatus(
-                    self.players[i], self.players, self.n_players),self.players[assassinated], choosen_card)
-
+                    for i in range(len(self.players[assassinated].playing_cards)):
+                        print(i, '.-', self.players[assassinated].playing_cards[i])
                     
+                    choosen_card = int(input())-1
+                    
+                    Gamestatus.Change_gamestatus(Gamestatus(self.attacker, self.players, self.n_players), self.players[assassinated], choosen_card)
                     
