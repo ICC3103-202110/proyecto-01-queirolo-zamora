@@ -25,7 +25,10 @@ class Play (ABC):
 
             for i in range(self.n_players):
 
+                print(100 * '\n')
+
                 print("it's", self.players[i].name,"'s Turn!")
+                
 
 
                 Show_game.show_game(Show_game(
@@ -105,7 +108,8 @@ class Play (ABC):
                     self.players[i].cards.remove(CARD2)
 
                     shuffle_deck.append(CARD1,CARD2)
-                    
+                
+                
                 
                 
                 
