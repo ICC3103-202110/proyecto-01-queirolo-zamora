@@ -60,6 +60,7 @@ class Play (ABC):
 
 
                 elif action == 2:
+                    print(100 * '\n')
                     if (input(
                         'Someone whats to counterattack this action? (yes/no)')) == "yes":
                         blocked = Counterattack.counterattack(
@@ -78,6 +79,7 @@ class Play (ABC):
                 #Character Actions
 
                 elif action == 4:
+                    print(100 * '\n')
                     challenged = Challenge.challenge(
                         Challenge(self.players[i], 4, self.n_players ,self.players))
                     if challenged == False:

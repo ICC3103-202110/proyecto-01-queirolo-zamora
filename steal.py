@@ -12,6 +12,8 @@ class Steal (ABC):
         self.n_players = n_players
     
     def steal (self):
+        print(100 * '\n')
+        
         challenged = Challenge.challenge(
                         Challenge(self.attacker, 4, self.n_players ,self.players))
         if challenged == False:
@@ -22,6 +24,7 @@ class Steal (ABC):
                 blocked = False
 
             if blocked == False:
+                Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
                 print('Who do you want to steal from?')
                 for i in range(self.n_players):
                     if self.players[i] != self.attacker:

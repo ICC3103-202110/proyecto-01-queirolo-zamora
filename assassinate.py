@@ -16,6 +16,8 @@ class Assassinate (ABC):
         if self.attacker.coins <= 3:
             print("You don't have enough money, you lose your turn!")
         else:
+            print(100 * '\n')
+           
             challenged = Challenge.challenge(
                             Challenge(self.attacker, 2, self.n_players ,self.players))
             if challenged == False:
@@ -26,6 +28,7 @@ class Assassinate (ABC):
                     blocked = False
 
                 if blocked == False:
+                    Show_game.show_game(Show_game(self.players[i], self.players, self.n_players))
                     self.attacker.coins -= 3
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
