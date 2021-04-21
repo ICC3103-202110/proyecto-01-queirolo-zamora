@@ -3,6 +3,7 @@ from abc import abstractmethod
 from challenge import Challenge
 from counterattack import Counterattack
 from gamestatus import Gamestatus
+import time
 
 
 class Assassinate (ABC):
@@ -37,6 +38,7 @@ class Assassinate (ABC):
                             print(i+1, '.-', self.players[i].name)
                     assassinated = int(input("Choose the number of the player you want to Assassinate: ")) - 1
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
+                    time.sleep(3)
                     for i in range(len(self.players[assassinated].playing_cards)):
                         print(i, '.-', self.players[assassinated].playing_cards[i])
                     
