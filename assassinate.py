@@ -14,7 +14,7 @@ class Assassinate (ABC):
     
     def assassinate (self):
 
-        if self.attacker.coins <= 3:
+        if self.attacker.coins < 3:
             print("You don't have enough money, you lose your turn!")
         else:
             print(100 * '\n')
@@ -35,7 +35,7 @@ class Assassinate (ABC):
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
-                    assassinated = int(input("Choose a player to Assassinate: ")) - 1
+                    assassinated = int(input("Choose the number of the player you want to Assassinate: ")) - 1
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
                     for i in range(len(self.players[assassinated].playing_cards)):
                         print(i, '.-', self.players[assassinated].playing_cards[i])
