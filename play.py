@@ -105,25 +105,35 @@ class Play (ABC):
 
                 
                 elif action == 7:
+                    NEW_CARDS= []
 
-                    Deck.draw_card_from_deck()
-                    Deck.draw_card_from_deck()
+                    for i in range(2): 
+                        NEW_CARDS.append(Deck.draw_card_from_deck())
 
-                    # NEW_CARDS= []
-                    #for i in range(2): 
-                        #NEW_CARDS.append(Deck.draw_card_from_deck())
-
-                    #self.players[i].cards.append(NEW_CARDS)
+                    for i in range(2): 
+                        self.players[i].add_card(NEW_CARDS[0])
+                        NEW_CARDS.pop(0)
                     
                     print(self.players[i].cards)
                     print()
 
-                    CARD1= input("Choose a card to return it to the deck: ")
-                    CARD2= input("Choose another card to return it to the deck: ") 
-
-                    Deck.return_card(CARD1, self.players[i].cards)
-                    Deck.return_card(CARD2, self.players[i].cards)
-                    
+                    X = True
+                    while X == True:
+                        CARD1= int(input("Choose a card to return it to the deck (1,2,3,4): "))
+                        if CARD1<1 and CARD1>4:
+                            print("Invalid card,try again")
+                        else:
+                            Deck.return_card(self.players[i].cards[CARD1-1], self.players[i].cards)
+                            X = False
+                        
+                    X = True
+                    while X == True:
+                        CARD2= int(input("Choose another card to return it to the deck (1,2,3): "))
+                        if CARD2<1 and CARD2>3:
+                            print("Invalid card,try again")
+                        else:
+                            Deck.return_card(self.players[i].cards[CARD2-1], self.players[i].cards)
+                            X = False                                           
                 
                 
                 

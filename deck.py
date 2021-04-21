@@ -17,7 +17,7 @@ class Deck(ABC):
     def return_card(self,card,hand_deck):
         self.hand_deck.remove(card)
         self.deck.append(card)
-        return self.hand_deck, self.deck
+        
 
     def see_hand_cards(self,player):
         print(player.cards)
