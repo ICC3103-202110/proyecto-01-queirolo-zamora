@@ -23,7 +23,7 @@ class Play (ABC):
         vbreak = False
 
         while True:
-            if len(self.Players) == 1:
+            if self.n_players == 1:
                 break
             
             if vbreak == True:
