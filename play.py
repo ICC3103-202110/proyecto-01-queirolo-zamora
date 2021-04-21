@@ -105,20 +105,25 @@ class Play (ABC):
 
                 
                 elif action == 7:
-                    NEW_CARDS= []
+
+                    Deck.draw_card_from_deck()
+                    Deck.draw_card_from_deck()
+
+                    # NEW_CARDS= []
                     #for i in range(2): 
                         #NEW_CARDS.append(Deck.draw_card_from_deck())
 
-                    self.players[i].cards.append(NEW_CARDS)
+                    #self.players[i].cards.append(NEW_CARDS)
+                    
+                    print(self.players[i].cards)
+                    print()
 
                     CARD1= input("Choose a card to return it to the deck: ")
-                    CARD2= input("Choose another card to return it to the deck: ")
-
-                    '''
+                    CARD2= input("Choose another card to return it to the deck: ") 
 
                     Deck.return_card(CARD1, self.players[i].cards)
                     Deck.return_card(CARD2, self.players[i].cards)
-                    '''
+                    
                 
                 
                 
