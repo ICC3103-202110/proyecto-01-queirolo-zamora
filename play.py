@@ -9,7 +9,7 @@ from challenge import Challenge
 from coup import Coup
 from steal import Steal
 from assassinate import Assassinate
-
+import random
 
 class Play (ABC):
 
@@ -65,17 +65,46 @@ class Play (ABC):
 
 
                     elif action == 1:
+                        print(100 * '\n')
+                        print(self.players[i].name, 'use Income')
                         self.players[i].change_amount_coins(1)
                         
 
 
                     elif action == 2:
                         print(100 * '\n')
-                        if (input(
-                            'Someone whats to counterattack this action? (yes/no)')) == "yes":
+                        print(self.players[i].name, 'use Foreign aid')
+                        y_n = input('Someone whats to counterattack this action? (yes/no)')
+                        if y_n == "yes" :
+                            if  y_n == 'yes':
+                                attackers = []
+                                for j in range(self.n_players):
+                                    if self.players[j] !=self.players[i]:
+                                        print(j+1, '.-', self.players[j].name)
+                                
+                                attacker1 = (int(input()))-1
+                                attackers.append(attacker1)
+                                y_n = input(
+                                    'someone else whats to counterattack this action?(yes/no)')
+                                if  y_n == 'yes':
+                                    for j in range(self.n_players):
+                                        if self.players[j] != self.players[i]:
+                                            print(j+1, '.-', self.players[j].name)
+                                    attacker2 = (int(input()))-1
+                                    attackers.append(attacker2)
+                                if self.n_players == 4 and y_n == 'yes':
+                                    y_n = input(
+                                        'someone else whats to challenge this action?(yes/no)')
+                                    if  y_n == 'yes':
+                                        for j in range(self.n_players):
+                                            if self.players[j] != self.players[i]:
+                                                print(j+1, '.-', self.players[i].name)
+                                        attacker3 = (int(input()))-1
+                                        attackers.append(attacker3)
+                                attacker = random.choice(attackers)
                             blocked = Counterattack.counterattack(
                                 Counterattack(
-                                    self.players[i], 1, self.n_players, self.players))
+                                    self.players[i], 1, self.n_players, self.players, attacker))
                         else:
                             blocked = False
 
@@ -86,12 +115,14 @@ class Play (ABC):
 
                     elif action == 3:
                         Coup.coup(Coup(self.players[i], self.players, self.n_players))
-                        
+                        print(100 * '\n')
+                        print(self.players[i].name, 'use Coup')
                     
                     #Character Actions
 
                     elif action == 4:
                         print(100 * '\n')
+                        print(self.players[i].name, 'use Tax')
                         challenged = Challenge.challenge(
                             Challenge(self.players[i], 4, self.n_players ,self.players))
                         if challenged == False:
@@ -100,6 +131,8 @@ class Play (ABC):
                     
 
                     elif action == 5:
+                        print(100 * '\n')
+                        print(self.players[i].name, 'use Assassinate')
                         Assassinate.assassinate(
                             Assassinate(self.players[i], self.players, self.n_players))
                         
@@ -107,12 +140,15 @@ class Play (ABC):
 
 
                     elif action == 6:
+                        print(100 * '\n')
+                        print(self.players[i].name, 'use Steal')
                         Steal.steal(Steal(self.players[i], self.players, self.n_players))
                         
 
                     
                     elif action == 7:
                         print(100 * '\n')
+                        print(self.players[i].name, 'use Exchange')
                         new_cards = []
                         new_cards_name = []
                         new_cards.append(self.deck[0])
@@ -150,15 +186,16 @@ class Play (ABC):
 
                         for j in range(len(new_cards)):
                             print(j+1,'.-', new_cards_name[j])
+                        if self.players[i].cards[0] != 0 and self.players[i].cards[1] != 0:
 
-                        card2 = int(input('Select the second card to keep!'))
-                        self.players[i].cards.append(new_cards[card2-1])
-                        self.players[i].playing_cards.append(new_cards_name[card2-1])
-                        new_cards.pop(card2-1)
-                        new_cards_name.pop(card1-1)
-
+                            card2 = int(input('Select the second card to keep!'))
+                            self.players[i].cards.append(new_cards[card2-1])
+                            self.players[i].playing_cards.append(new_cards_name[card2-1])
+                            new_cards.pop(card2-1)
+                            new_cards_name.pop(card1-1)
+                            self.deck.append(new_cards[1])
                         self.deck.append(new_cards[0])
-                        self.deck.append(new_cards[1])
+                            
 
                     
                     self.n_players = len(self.players)

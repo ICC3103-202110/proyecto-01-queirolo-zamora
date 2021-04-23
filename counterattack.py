@@ -5,25 +5,20 @@ from challenge import Challenge
 
 class Counterattack(ABC):
 
-    def __init__(self, victim, counterattack_card, n_players, players):
+    def __init__(self, victim, counterattack_card, n_players, players, attacker):
         self.victim = victim
         self.counterattack_card = counterattack_card
         self.n_players = n_players
         self.players = players
+        self.attacker = attacker
 
     def counterattack(self):
-        y_n = input('someone whats to challenge this counterattack?(yes/no)')
-        if  y_n == 'yes':
-            for i in range(self.n_players):
-                if self.players[i] != self.victim:
-                    print(i+1, '.-', self.players[i].name)
-            attacker = input()
-            winner = Challenge.challenge(Challenge(attacker, self.counterattack_card, self.n_players ,self.players))
+        print(self.attacker.name, 'is counterattacking')
+        winner = Challenge.challenge(Challenge(
+            self.attacker, self.counterattack_card, self.n_players ,self.players))
 
-            if winner == 'victim':
+        if winner == False:
                 return True
-            if winner == 'attacker':
+                print('successful counterattack')
+        if winner == 'attacker':
                 return False
-
-        elif y_n == 'no':
-            return True

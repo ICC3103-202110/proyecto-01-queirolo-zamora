@@ -3,6 +3,7 @@ from abc import abstractmethod
 from challenge import Challenge
 from counterattack import Counterattack
 from gamestatus import Gamestatus
+import random
 
 
 
@@ -19,9 +20,35 @@ class Steal (ABC):
         challenged = Challenge.challenge(
                         Challenge(self.attacker, 3, self.n_players ,self.players))
         if challenged == False:
-            if (input('Someone whats to counterattack this action? (yes/no)')) == "yes":
+            y_n = input('someone else whats to counterattack this action?(yes/no)')
+            if  y_n == 'yes':
+                attackers = []
+                for i in range(self.n_players):
+                    if self.players[i] != self.attacker:
+                        print(i+1, '.-', self.players[i].name)
+                                
+                attacker1 = (int(input()))-1
+                attackers.append(attacker1)
+                y_n = input(
+                    'someone else whats to counterattack this action?(yes/no)')
+                if  y_n == 'yes':
+                    for i in range(self.n_players):
+                        if self.players[i] != self.attacker:
+                            print(i+1, '.-', self.players[i].name)
+                    attacker2 = (int(input()))-1
+                    attackers.append(attacker2)
+                if self.n_players == 4 and y_n == 'yes':
+                    y_n = input(
+                        'someone else whats to challenge this action?(yes/no)')
+                    if  y_n == 'yes':
+                        for i in range(self.n_players):
+                            if self.players[i] != self.attacker:
+                                print(i+1, '.-', self.players[i].name)
+                        attacker3 = (int(input()))-1
+                        attackers.append(attacker3)
+                attacker = random.choice(attackers)
                 blocked = Counterattack.counterattack(
-                    Counterattack(self.attacker, 1, self.n_players, self.players))
+                    Counterattack(self.attacker, 1, self.n_players, self.players, attacker))
             else:
                 blocked = False
 
