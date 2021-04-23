@@ -22,11 +22,27 @@ class Coup (ABC):
             for i in range(self.n_players):
                 if self.players[i] != self.attacker:
                     print(i+1, '.-', self.players[i].name)
-            COUPED = int(input("Choose a player to Coup: ")) - 1
+    
+            while True:
+                COUPED = int(input("Choose a player to Coup: ")) - 1
+                try:
+                    if COUPED<= self.n_players-1 and COUPED>=0:
+                        break
+                except:
+                    print('Insert a valid answer!')
+                    ValueError
             print(self.players[COUPED].name, 'Choose a card to reveal!')
             for i in range(len(self.players[COUPED].playing_cards)):
                 print(i, '.-', self.players[COUPED].playing_cards[i])
-            choosen_card = int(input())-1
+
+            while True:
+                choosen_card = int(input())-1
+                try:
+                    if choosen_card>= 0 and choosen_card>=1:
+                        break
+                except:
+                    print('Insert a valid answer!')
+                    ValueError
             Gamestatus.Change_gamestatus(Gamestatus(self.attacker, self.players, self.n_players), self.players[COUPED], choosen_card)
             
             
