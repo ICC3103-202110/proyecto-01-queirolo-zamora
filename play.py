@@ -117,8 +117,10 @@ class Play (ABC):
                         new_cards_name = []
                         new_cards.append(self.deck[0])
                         new_cards.append(self.deck[1])
-                        new_cards.append(self.players[i].cards[0])
-                        new_cards.append(self.players[i].cards[1])
+                        if self.players[i].cards[0] != 0:
+                            new_cards.append(self.players[i].cards[0])
+                        if self.players[i].cards[1] != 0:    
+                            new_cards.append(self.players[i].cards[1])
                         self.players[i].cards.pop(0)
                         self.players[i].cards.pop(0)
                         self.players[i].playing_cards.pop(0)
