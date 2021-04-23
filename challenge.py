@@ -2,7 +2,8 @@ from abc import ABC
 from abc import abstractmethod
 from gamestatus import Gamestatus
 import random
-from numpy import random
+import time
+
 
 
 class Challenge (ABC):
@@ -41,12 +42,18 @@ class Challenge (ABC):
                     attackers.append(attacker3)
             attacker = random.choice(attackers)
             print(self.players[attacker].name, 'is challenging')
+            time.sleep(3)
+            print()
         
 
 
             if self.challenged_card == self.victim.cards[0] or self.challenged_card == self.victim.cards[1]:
-                print(self.players[attacker].name, 'lose the challenge')
-                print(self.players[attacker].name, 'chose a card to reval!')
+                print(self.players[attacker].name, 'lost the challenge')
+                time.sleep(2)
+                print()
+                print(self.players[attacker].name, 'choose a card to reval!')
+                time.sleep(3)
+                print()
                 print('1.-', self.players[attacker].playing_cards[0])
                 print('2.-', self.players[attacker].playing_cards[1])
                 choosen_card = int(input())-1
@@ -56,7 +63,11 @@ class Challenge (ABC):
 
             else:
                 print(self.victim.name, 'lose the challenge')
+                time.sleep(2)
+                print()
                 print(self.victim.name, 'chose a card to reval!')
+                time.sleep(3)
+                print()
                 print('1.-', self.victim.playing_cards[0])
                 print('2.-', self.victim.playing_cards[1])
                 choosen_card = int(input())-1

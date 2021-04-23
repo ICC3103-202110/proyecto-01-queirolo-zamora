@@ -1,7 +1,7 @@
 from abc import ABC
 from abc import abstractmethod
 from showgame import Show_game
-from numpy import random
+import random
 
 
 class Gamestatus(ABC):

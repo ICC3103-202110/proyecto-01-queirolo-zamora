@@ -32,6 +32,8 @@ class Assassinate (ABC):
                 self.attacker.coins -= 3
                 print('-3 coins.')
                 print()
+                y_n = input(
+                        'someone whats to counterattack this action?(yes/no)')
                 if  y_n == 'yes':
                     attackers = []
                     for i in range(self.n_players):
