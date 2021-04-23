@@ -101,7 +101,7 @@ class Play (ABC):
                                 attackers.append(attacker1)
                             
                                 while True:
-                                    y_n = input('Someone else whats to counterattack this action? (yes/no)')
+                                    y_n = input('Someone else whats to counterattack this action? (yes/no) ')
                                     try:
                                         if y_n == "yes" or y_n == "no":
                                             break
