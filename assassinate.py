@@ -33,16 +33,14 @@ class Assassinate (ABC):
                 print('-3 coins.')
                 print()
                 while True:
-                    while True:
-                        y_n = input(
+                    y_n = input(
                             'someone whats to counterattack this action?(yes/no)')
-
-                        try:
-                            if int(number_of_players):
-                                ValueError
-                                print('Insert a valid answer!')
-                        except:
+                    try:
+                        if y_n=="yes" or y_n=="no":
                             break
+                    except:
+                        ValueError
+                        print('Insert a valid answer!')
             
                         
                 print()
@@ -54,24 +52,60 @@ class Assassinate (ABC):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
                                 
-                    attacker1 = (int(input()))-1
+                    while True:
+                        attacker1 = (int(input()))-1
+                        try:
+                            if attacker1<= self.n_players-1 and attacker1>=0:
+                                break
+                        except:
+                            print('Insert a valid answer!')
+                            ValueError
                     attackers.append(attacker1)
-                    y_n = input(
-                        'someone else whats to counterattack this action?(yes/no)')
+                    while True:
+                        y_n = input(
+                            'someone else whats to counterattack this action?(yes/no)')
+                        try:
+                            if y_n=="yes" or y_n=="no":
+                                break
+                        except:
+                            ValueError
+                            print('Insert a valid answer!')
+                    
                     if  y_n == 'yes':
                         for i in range(self.n_players):
                             if self.players[i] != self.attacker:
                                 print(i+1, '.-', self.players[i].name)
-                        attacker2 = (int(input()))-1
+                        while True:
+                            attacker2 = (int(input()))-1
+                            try:
+                                if attacker2<= self.n_players-1 and attacker2>=0:
+                                    break
+                            except:
+                                print('Insert a valid answer!')
+                                ValueError
                         attackers.append(attacker2)
                     if self.n_players == 4 and y_n == 'yes':
-                        y_n = input(
-                            'someone else whats to challenge this action?(yes/no)')
+                        while True:
+                            y_n = input(
+                            'someone else whats to counterattack this action?(yes/no)')
+                            try:
+                                if y_n=="yes" or y_n=="no":
+                                    break
+                            except:
+                                ValueError
+                                print('Insert a valid answer!')
                         if  y_n == 'yes':
                             for i in range(self.n_players):
                                 if self.players[i] != self.attacker:
                                     print(i+1, '.-', self.players[i].name)
-                            attacker3 = (int(input()))-1
+                            while True:
+                                attacker3 = (int(input()))-1
+                                try:
+                                    if attacker3<= self.n_players-1 and attacker3>=0:
+                                        break
+                                except:
+                                    print('Insert a valid answer!')
+                                    ValueError
                             attackers.append(attacker3)
                     attacker = random.choice(attackers)
                     blocked = Counterattack.counterattack(
@@ -86,13 +120,26 @@ class Assassinate (ABC):
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
-                    assassinated = int(input("Choose the number of the player you want to Assassinate: ")) - 1
+                    while True:
+                            assassinated = int(input("Choose the number of the player you want to Assassinate: ")) - 1
+                            try:
+                                if assassinated>=0 and assassinated<= self.n_players-1:
+                                    break
+                            except:
+                                print('Insert a valid answer!')
+                                ValueError
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
                     time.sleep(3)
                     for i in range(len(self.players[assassinated].playing_cards)):
                         print(i+1, '.-', self.players[assassinated].playing_cards[i])
-                    
-                    choosen_card = int(input())-1
+                    while True:
+                        choosen_card = int(input())-1
+                        try:
+                            if choosen_card>=0 and choosen_card<=1:
+                                break
+                        except:
+                            print('Insert a valid answer!')
+                            ValueError
                     
                     Gamestatus.Change_gamestatus(Gamestatus(self.attacker, self.players, self.n_players), self.players[assassinated], choosen_card)
                 else:
