@@ -21,6 +21,7 @@ class Show_game(ABC):
 
         if self.players[0] == self.player:
             if self.n_players == 2:
+                print('-------------------------------------------------GAME-----------------------------------------------------------------')
                 print('Player:                                                                                      Player:')
                 print('       ',self.players[0].name,'                                                                                          ',self.players[1].name)
                 print('CARDS:                                                                                       CARDS:')
@@ -55,6 +56,7 @@ class Show_game(ABC):
 
         elif self.players[1] == self.player:
             if self.n_players == 2:
+                print('-------------------------------------------------GAME-----------------------------------------------------------------')
                 print('Player:                                                                                      Player:')
                 print('       ',self.players[0].name,'                                                                                          ',self.players[1].name)
                 print('CARDS:                                                                                       CARDS:')
