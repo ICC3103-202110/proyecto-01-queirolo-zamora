@@ -72,7 +72,9 @@ def main():
     
         players.append(Player(name, 2, player_deck, playing_cards, hiden_deck))
     
-    Play.play(Play(players, n_players))
+    Play.play(Play(players, n_players, shuffle_deck))
+
+    
 
 
     

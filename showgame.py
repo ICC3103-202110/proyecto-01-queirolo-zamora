@@ -10,7 +10,8 @@ class Show_game(ABC):
         self.n_players = n_players
         self.hide_deck1 = self.players[0].hiden_deck
         self.hide_deck2 = self.players[1].hiden_deck
-        self.hide_deck3 = self.players[2].hiden_deck
+        if n_players == 3:
+            self.hide_deck3 = self.players[2].hiden_deck
         if n_players == 4 :
             self.hide_deck4 = self.players[3].hiden_deck
 
@@ -23,7 +24,7 @@ class Show_game(ABC):
                 print('Player:                                                                                      Player:')
                 print('       ',self.players[0].name,'                                                                                          ',self.players[1].name)
                 print('CARDS:                                                                                       CARDS:')
-                print('       ',self.players[0].playing_cards,'                                                                                     ',self.hide_deck3)
+                print('       ',self.players[0].playing_cards,'                                                                                     ',self.hide_deck1)
                 print('COINS:                                                                                       COINS:')
                 print('       ',self.players[0].coins,'                                                                                          ',self.players[1].coins)
             elif self.n_players >= 3:
@@ -57,7 +58,7 @@ class Show_game(ABC):
                 print('Player:                                                                                      Player:')
                 print('       ',self.players[0].name,'                                                                                          ',self.players[1].name)
                 print('CARDS:                                                                                       CARDS:')
-                print('       ',self.hide_deck1,'                                                                                     ',self.hide_deck3)
+                print('       ',self.hide_deck1,'                                                                                     ',self.players[1].playing_cards)
                 print('COINS:                                                                                       COINS:')
                 print('       ',self.players[0].coins,'                                                                                          ',self.players[1].coins)
             
@@ -89,13 +90,6 @@ class Show_game(ABC):
 
         elif self.players[2] == self.player:
 
-            if self.n_players == 2:
-                print('Player:                                                                                      Player:')
-                print('       ',self.players[0].name,'                                                                                          ',self.players[2].name)
-                print('CARDS:                                                                                       CARDS:')
-                print('       ',self.hide_deck1,'                                                                                     ',self.players[2].playing_cards)
-                print('COINS:                                                                                       COINS:')
-                print('       ',self.players[0].coins,'                                                                                          ',self.players[2].coins)
             if self.n_players >= 3:
                 print('-------------------------------------------------GAME-----------------------------------------------------------------')
                 print()
