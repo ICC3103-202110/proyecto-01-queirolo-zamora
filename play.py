@@ -22,6 +22,7 @@ class Play (ABC):
         vbreak = False
 
         while True:
+            RECORD = []
             if self.n_players == 1:
                 break
             
@@ -43,6 +44,7 @@ class Play (ABC):
 
                     if self.players[i].coins >= 10:
                         action = 3
+                        RECORD.append(self.players[i].name, "Couped (he/she had 10+ coins)")
 
                     else:
                         print(2*'\n')
@@ -59,7 +61,8 @@ class Play (ABC):
                     
 
                     if action == 8:
-                        vbreak = True 
+                        vbreak = True
+                        RECORD.append("Game forced to stop")
                         
                         break 
 
@@ -68,6 +71,7 @@ class Play (ABC):
                         print(100 * '\n')
                         print(self.players[i].name, 'used Income')
                         self.players[i].change_amount_coins(1)
+                        RECORD.append(self.players[i].name,"used income")
                         
 
 
@@ -154,12 +158,15 @@ class Play (ABC):
                         if blocked == False:
                             self.players[i].change_amount_coins(2)
                         
+                        RECORD.append(self.players[i].name,"used Foreign aid")
+                        
                     
 
                     elif action == 3:
                         Coup.coup(Coup(self.players[i], self.players, self.n_players))
                         print(100 * '\n')
                         print(self.players[i].name, 'used Coup')
+                        RECORD.append(self.players[i].name, "used Coup")
                     
                     #Character Actions
 
@@ -170,6 +177,7 @@ class Play (ABC):
                             Challenge(self.players[i], 1, self.n_players ,self.players, self.deck))
                         if challenged == False:
                             self.players[i].coins += 3
+                        RECORD.append(self.players[i].name,"used Tax")
                         
                     
 
@@ -178,6 +186,7 @@ class Play (ABC):
                         print(self.players[i].name, 'used Assassinate')
                         Assassinate.assassinate(
                             Assassinate(self.players[i], self.players, self.n_players, self.deck))
+                        RECORD.append(self.players[i].name,"used Assassinate")
                         
 
 
@@ -187,6 +196,7 @@ class Play (ABC):
                         print(self.players[i].name, 'used Steal')
                         time.sleep(2)
                         Steal.steal(Steal(self.players[i], self.players, self.n_players, self.deck))
+                        RECORD.append(self.players[i].name," used Steal")
                         
 
                     
@@ -255,6 +265,8 @@ class Play (ABC):
                             new_cards_name.pop(card2-1)
                             self.deck.append(new_cards[1])
                         self.deck.append(new_cards[0])
+
+                        RECORD.append(self.players[i].name,"used Exchange")
                             
 
                     
