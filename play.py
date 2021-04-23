@@ -104,7 +104,7 @@ class Play (ABC):
                                 attacker = random.choice(attackers)
                             blocked = Counterattack.counterattack(
                                 Counterattack(
-                                    self.players[i], 1, self.n_players, self.players, attacker))
+                                    self.players[i], 1, self.n_players, self.players, attacker, self.deck))
                         else:
                             blocked = False
 
@@ -124,7 +124,7 @@ class Play (ABC):
                         print(100 * '\n')
                         print(self.players[i].name, 'use Tax')
                         challenged = Challenge.challenge(
-                            Challenge(self.players[i], 4, self.n_players ,self.players))
+                            Challenge(self.players[i], 1, self.n_players ,self.players, self.deck))
                         if challenged == False:
                             self.players[i].coins += 3
                         
@@ -134,7 +134,7 @@ class Play (ABC):
                         print(100 * '\n')
                         print(self.players[i].name, 'use Assassinate')
                         Assassinate.assassinate(
-                            Assassinate(self.players[i], self.players, self.n_players))
+                            Assassinate(self.players[i], self.players, self.n_players, self.deck))
                         
 
 
@@ -142,7 +142,7 @@ class Play (ABC):
                     elif action == 6:
                         print(100 * '\n')
                         print(self.players[i].name, 'use Steal')
-                        Steal.steal(Steal(self.players[i], self.players, self.n_players))
+                        Steal.steal(Steal(self.players[i], self.players, self.n_players, self.deck))
                         
 
                     
@@ -184,10 +184,10 @@ class Play (ABC):
                         new_cards.pop(card1-1)
                         new_cards_name.pop(card1-1)
 
-                        for j in range(len(new_cards)):
-                            print(j+1,'.-', new_cards_name[j])
-                        if self.players[i].cards[0] != 0 and self.players[i].cards[1] != 0:
-
+                        
+                        if self.players[i].cards[0] != 0:
+                            for j in range(len(new_cards)):
+                                print(j+1,'.-', new_cards_name[j])
                             card2 = int(input('Select the second card to keep!'))
                             self.players[i].cards.append(new_cards[card2-1])
                             self.players[i].playing_cards.append(new_cards_name[card2-1])
@@ -220,3 +220,4 @@ class Play (ABC):
             print()
         else:
             print('Force Quit')
+    

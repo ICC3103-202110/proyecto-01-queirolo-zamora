@@ -2,14 +2,17 @@ from abc import ABC
 from abc import abstractmethod
 from gamestatus import Gamestatus
 import random
+from numpy import random
+
 
 class Challenge (ABC):
 
-    def __init__(self, victim, challenged_card, n_players, players):
+    def __init__(self, victim, challenged_card, n_players, players, deck):
         self.victim = victim
         self.challenged_card = challenged_card
         self.n_players = n_players
         self.players = players
+        self.deck = deck
     
     def challenge(self):
         attackers = []
@@ -37,7 +40,7 @@ class Challenge (ABC):
                     attacker3 = (int(input()))-1
                     attackers.append(attacker3)
             attacker = random.choice(attackers)
-            print(attacker.name, 'is chalenging')
+            print(self.players[attacker].name, 'is challenging')
         
 
 
@@ -48,7 +51,6 @@ class Challenge (ABC):
                 print('2.-', self.players[attacker].playing_cards[1])
                 choosen_card = int(input())-1
                 Gamestatus.Change_gamestatus(Gamestatus(self.players[attacker], self.players, self.n_players), self.players[attacker], choosen_card)
-                
                 
                 return False
 

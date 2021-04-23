@@ -1,6 +1,7 @@
 from abc import ABC
 from abc import abstractmethod
 from showgame import Show_game
+from numpy import random
 
 
 class Gamestatus(ABC):
@@ -56,7 +57,7 @@ class Gamestatus(ABC):
         if choosen_player.cards[0] == 0 and choosen_player.cards[1] == 0 :
             print (choosen_player.name, 'Lose!')
             self.players.remove(choosen_player)
-            
+                
 
         
     def Show_gamestatus(self):

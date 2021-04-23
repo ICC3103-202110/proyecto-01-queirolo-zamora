@@ -7,24 +7,31 @@ import time
 import random
 
 
+
 class Assassinate (ABC):
 
-    def __init__ (self, attacker, players, n_players):
+    def __init__ (self, attacker, players, n_players,deck):
         self.attacker = attacker
         self.players = players
         self.n_players = n_players
+        self.deck = deck
     
     def assassinate (self):
 
         if self.attacker.coins < 3:
             print("You don't have enough money, you lose your turn!")
         else:
+            
+            
+            time.sleep(3)
             print(100 * '\n')
-           
             challenged = Challenge.challenge(
-                            Challenge(self.attacker, 2, self.n_players ,self.players))
+                            Challenge(self.attacker, 2, self.n_players ,self.players,self.deck))
             if challenged == False:
-                
+                print()
+                self.attacker.coins -= 3
+                print('-3 coins.')
+                print()
                 if  y_n == 'yes':
                     attackers = []
                     for i in range(self.n_players):
@@ -52,14 +59,14 @@ class Assassinate (ABC):
                             attackers.append(attacker3)
                     attacker = random.choice(attackers)
                     blocked = Counterattack.counterattack(
-                        Counterattack(self.attacker, 5, self.n_players, self.players, attacker))
+                        Counterattack(self.attacker, 5, self.n_players, self.players, attacker, self.deck))
                 else:
                     blocked = False
 
                 if blocked == False:
                     Gamestatus.Show_gamestatus(Gamestatus(
                         self.attacker, self.players, self.n_players))
-                    self.attacker.coins -= 3
+                    
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
@@ -72,4 +79,5 @@ class Assassinate (ABC):
                     choosen_card = int(input())-1
                     
                     Gamestatus.Change_gamestatus(Gamestatus(self.attacker, self.players, self.n_players), self.players[assassinated], choosen_card)
-                    
+                else:
+                    print('the action failed')
