@@ -32,8 +32,22 @@ class Assassinate (ABC):
                 self.attacker.coins -= 3
                 print('-3 coins.')
                 print()
-                y_n = input(
-                        'someone whats to counterattack this action?(yes/no)')
+                while True:
+                    while True:
+                        y_n = input(
+                            'someone whats to counterattack this action?(yes/no)')
+
+                        try:
+                            if int(number_of_players):
+                                ValueError
+                                print('Insert a valid answer!')
+                        except:
+                            break
+            
+                        
+                print()
+                    
+                        
                 if  y_n == 'yes':
                     attackers = []
                     for i in range(self.n_players):
