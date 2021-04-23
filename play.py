@@ -185,6 +185,7 @@ class Play (ABC):
                     elif action == 6:
                         print(100 * '\n')
                         print(self.players[i].name, 'used Steal')
+                        time.sleep(2)
                         Steal.steal(Steal(self.players[i], self.players, self.n_players, self.deck))
                         
 
