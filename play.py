@@ -179,7 +179,15 @@ class Play (ABC):
                         for j in range(len(new_cards)):
                             print(j+1,'.-', new_cards_name[j])
 
-                        card1 = int(input('Select the first card to keep!'))
+                        while True:
+                            card1 = int(input('Select the first card to keep!'))
+                            try:
+                                if card1<= 4 and card1>=1:
+                                    break
+                            except:
+                                print('Insert a valid answer!')
+                                ValueError
+                            
                         self.players[i].cards.append(new_cards[card1-1])
                         self.players[i].playing_cards.append(new_cards_name[card1-1])
                         new_cards.pop(card1-1)
@@ -189,7 +197,14 @@ class Play (ABC):
                         if self.players[i].cards[0] != 0:
                             for j in range(len(new_cards)):
                                 print(j+1,'.-', new_cards_name[j])
-                            card2 = int(input('Select the second card to keep!'))
+                            while True:
+                                card2 = int(input('Select the second card to keep!'))
+                                try:
+                                    if card2<= 3 and card2>=1:
+                                        break
+                                except:
+                                    print('Insert a valid answer!')
+                                    ValueError
                             self.players[i].cards.append(new_cards[card2-1])
                             self.players[i].playing_cards.append(new_cards_name[card2-1])
                             new_cards.pop(card2-1)
