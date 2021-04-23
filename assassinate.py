@@ -68,7 +68,7 @@ class Assassinate (ABC):
                 if blocked == False:
                     Gamestatus.Show_gamestatus(Gamestatus(
                         self.attacker, self.players, self.n_players))
-                    
+                    print("-----------------------------------------------------------------------------------")
                     for i in range(self.n_players):
                         if self.players[i] != self.attacker:
                             print(i+1, '.-', self.players[i].name)
@@ -76,7 +76,7 @@ class Assassinate (ABC):
                     print(self.players[assassinated].name, 'Choose a card to reveal!')
                     time.sleep(3)
                     for i in range(len(self.players[assassinated].playing_cards)):
-                        print(i, '.-', self.players[assassinated].playing_cards[i])
+                        print(i+1, '.-', self.players[assassinated].playing_cards[i])
                     
                     choosen_card = int(input())-1
                     

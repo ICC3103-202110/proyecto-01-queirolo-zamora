@@ -62,10 +62,10 @@ class Challenge (ABC):
                 return False
 
             else:
-                print(self.victim.name, 'lose the challenge')
+                print(self.victim.name, 'lost the challenge')
                 time.sleep(2)
                 print()
-                print(self.victim.name, 'chose a card to reval!')
+                print(self.victim.name, 'choose a card to reval!')
                 time.sleep(3)
                 print()
                 print('1.-', self.victim.playing_cards[0])
