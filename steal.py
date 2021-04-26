@@ -105,8 +105,6 @@ class Steal (ABC):
                 blocked = False
 
             if blocked == False:
-                Gamestatus.Show_gamestatus(Gamestatus(
-                        self.attacker, self.players, self.n_players))
                 print('Who do you want to steal from?')
                 for i in range(self.n_players):
                     if self.players[i] != self.attacker:
