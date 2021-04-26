@@ -44,7 +44,7 @@ class Play (ABC):
 
                     if self.players[i].coins >= 10:
                         action = 3
-                        RECORD.append(self.players[i].name, "Couped (he/she had 10+ coins)")
+                       
 
                     else:
                         print(2*'\n')
